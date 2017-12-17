@@ -1,3 +1,10 @@
+This code is come from Twtrubiks
+to learn how to use line bot
+kkiiddss mod it
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+
 # line-bot-Tutorial
 
  教你建立自己的 line-bot 使用 python flask 📝
