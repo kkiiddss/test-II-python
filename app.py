@@ -13,8 +13,8 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+line_bot_api = LineBotApi('9UqcHjiCzjEpbxBa//hlWWFvY79FC2PVc9CfRlhaOOXSozfPWpfsK4rSFpF/lwNwgsoS7qnKrk4TKTZes9CFdTFxAAUztx6VFZ8o3mPUlvJkVHrE2dsVoaN+UOSIU7A58/zbdp5TtFQpJWWGuSnyRAdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('c9e4610cf78163336e6cc81319358d5d')
 
 
 @app.route("/callback", methods=['POST'])
@@ -195,8 +195,8 @@ def ptt_random_pic():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == 'Apple news':
-        content = apple_news()
+    if event.message.text == '抽':
+        content = ptt_random_pic()
     elif event.message.text == 'Movie thisweek':
         content = movie_thisweek()
     elif event.message.text == 'Movie intheaters':
@@ -205,7 +205,7 @@ def handle_message(event):
         content = ptt_gossiping()
     elif event.message.text == 'PTT Beauty':
         content = ptt_beauty()
-    elif event.message.text == 'PTT random picture':
+    elif event.message.text == '插':
         content = ptt_random_pic()
         image_message = ImageSendMessage(
             original_content_url=content,
