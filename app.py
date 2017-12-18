@@ -101,7 +101,7 @@ def crawl_ptt(res, board, session=None):
     soup = BeautifulSoup(res.text, 'html.parser')
     content = []
 
-    while (len(content) < 10):
+    while (len(content) < 15):
         for data in soup.select('.r-ent'):
             if len(content) == 10:
                 break
@@ -118,7 +118,7 @@ def crawl_ptt(res, board, session=None):
 
             elif board == 'Beauty':
                 pushes = data.select_one('.nrec').text
-                if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 3):
+                if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 50):
                     title = data.find('a', href=True)
                     heading = title.text
                     link = 'https://www.ptt.cc' + title['href']
