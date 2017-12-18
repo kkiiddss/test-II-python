@@ -70,7 +70,7 @@ def handle_message(event):
         content = ptt_gossiping()
     elif event.message.text == 'PTT Beauty':
         content = ptt_beauty()
-    elif event.message.text == 'PTT random picture':
+    elif event.message.text == '插':
         content = ptt_random_pic()
         image_message = ImageSendMessage(
             original_content_url=content,
