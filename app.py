@@ -17,23 +17,6 @@ line_bot_api = LineBotApi('9UqcHjiCzjEpbxBa//hlWWFvY79FC2PVc9CfRlhaOOXSozfPWpfsK
 handler = WebhookHandler('c9e4610cf78163336e6cc81319358d5d')
 
 
-@app.route("/callback", methods=['POST'])
-def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    return 'OK'
-
 def crawl_ptt(res, board, session=None):
     soup = BeautifulSoup(res.text, 'html.parser')
     content = []
