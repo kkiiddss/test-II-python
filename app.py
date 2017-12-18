@@ -118,7 +118,7 @@ def crawl_ptt(res, board, session=None):
 
             elif board == 'Beauty':
                 pushes = data.select_one('.nrec').text
-                if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 10):
+                if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 3):
                     title = data.find('a', href=True)
                     heading = title.text
                     link = 'https://www.ptt.cc' + title['href']
