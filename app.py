@@ -166,7 +166,7 @@ def ptt_random_pic():
     soup = BeautifulSoup(res.text, 'html.parser')
     pic_urls = []
 
-    while (len(pic_urls) < 20):
+    while (len(pic_urls) < 50):
         for data in soup.select('.r-ent'):
             pushes = data.select_one('.nrec').text
             if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 2):
