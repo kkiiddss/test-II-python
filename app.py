@@ -169,7 +169,7 @@ def ptt_random_pic():
     while (len(pic_urls) < 1):
         for data in soup.select('.r-ent'):
             pushes = data.select_one('.nrec').text
-            if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 10):
+            if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 2):
                 title = data.find('a', href=True)
                 heading = title.text
                 link = 'https://www.ptt.cc' + title['href']
