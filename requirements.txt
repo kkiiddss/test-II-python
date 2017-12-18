@@ -1,6 +1,6 @@
 alembic==0.8.9
 click==6.7
-certufu==2017.7.27.1
+certifi==2017.7.27.1
 chardet==3.0.4
 Flask==0.12.2           
 future==0.16.0    
