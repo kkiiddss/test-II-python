@@ -195,8 +195,8 @@ def ptt_random_pic():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == 'Apple news':
-        content = apple_news()
+    if event.message.text == 'Apple':
+        content = ptt_random_pic()
     elif event.message.text == 'Movie thisweek':
         content = movie_thisweek()
     elif event.message.text == 'Movie intheaters':
@@ -205,7 +205,7 @@ def handle_message(event):
         content = ptt_gossiping()
     elif event.message.text == 'PTT Beauty':
         content = ptt_beauty()
-    elif event.message.text == 'PTT random picture':
+    elif event.message.text == '插':
         content = ptt_random_pic()
         image_message = ImageSendMessage(
             original_content_url=content,
