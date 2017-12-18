@@ -60,23 +60,15 @@ def callback():
 
 def handle_message(event):
 
-    if event.message.text == 'Apple news':
+    if event.message.text == '插':
         content = apple_news()
-    elif event.message.text == 'Movie thisweek':
-        content = movie_thisweek()
-    elif event.message.text == 'Movie intheaters':
-        content = movie_intheaters()
-    elif event.message.text == 'PTT Gossiping':
-        content = ptt_gossiping()
-    elif event.message.text == 'PTT Beauty':
-        content = ptt_beauty()
-    elif event.message.text == '插':
         content = ptt_random_pic()
+        
         image_message = ImageSendMessage(
             original_content_url=content,
             preview_image_url=content
-    )
-        line_bot_api.reply_message(
+        )
+     line_bot_api.reply_message(
             event.reply_token,
             image_message
         )
