@@ -197,6 +197,10 @@ def ptt_random_pic():
 def handle_message(event):
     if event.message.text == 'Apple':
         content = ptt_random_pic()
+         image_message = ImageSendMessage(
+            original_content_url=content,
+            preview_image_url=content
+        )
     elif event.message.text == 'Movie thisweek':
         content = movie_thisweek()
     elif event.message.text == 'Movie intheaters':
@@ -206,7 +210,9 @@ def handle_message(event):
     elif event.message.text == 'PTT Beauty':
         content = ptt_beauty()
     elif event.message.text == '插':
+        #執行ptt_random_pic 然後回傳url
         content = ptt_random_pic()
+        #show 出照片
         image_message = ImageSendMessage(
             original_content_url=content,
             preview_image_url=content
