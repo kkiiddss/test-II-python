@@ -114,6 +114,10 @@ def ptt_random_pic():
 def handle_message(event):
     if event.message.text == '抽':
         content = ptt_random_pic()
+        image_message = ImageSendMessage(
+            original_content_url=content,
+            preview_image_url=content
+        )
         )
 
         line_bot_api.reply_message(
