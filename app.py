@@ -35,48 +35,6 @@ def callback():
     return 'OK'
 
 
-def crawl_ptt(res, board, session=None):
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = []
-
-    while (len(content) < 10):
-        for data in soup.select('.r-ent'):
-            if len(content) == 10:
-                break
-
-            if board == 'Gossiping':
-                title = data.find('a', href=True)
-                heading = title.text
-                link = 'https://www.ptt.cc' + title['href']
-
-                if '公告' in heading:
-                    continue
-
-                content.append("{}\n{}\n".format(heading, link))
-
-            elif board == 'Beauty':
-                pushes = data.select_one('.nrec').text
-                if pushes == '爆' or (pushes != '' and 'X' not in pushes and int(pushes) > 10):
-                    title = data.find('a', href=True)
-                    heading = title.text
-                    link = 'https://www.ptt.cc' + title['href']
-
-                    if '公告' in heading:
-                        continue
-
-                    content.append("[{}推] {}\n{}\n".format(pushes, heading, link))
-
-        last_page_url = 'https://www.ptt.cc' + soup.select('.btn.wide')[1]['href']
-        if session is not None:
-            res = session.get(last_page_url, verify=False)
-        else:
-            res = requests.get(last_page_url)
-
-        soup = BeautifulSoup(res.text, 'html.parser')
-
-    return content
-
-
 def ptt_random_pic():
     target_url = 'https://www.ptt.cc/bbs/Beauty/index.html'
     res = requests.get(target_url)
